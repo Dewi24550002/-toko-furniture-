@@ -418,6 +418,18 @@
       </nav>
     </div><!-- End Page Title -->
 
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <a href="t_kategori.php" class="btn btn-primary mt-3">
+              <i class="bi-plus-lg"></i> Tambah Data
+         </a>
+    </div>
+  </div>
+</div>
+
+
     <section class="section">
       <div class="row">
         <div class="col-lg-6">
@@ -490,52 +502,62 @@
               <h5 class="card-title">Table with stripped rows</h5>
 
               <!-- Table with stripped rows -->
-              <table class="table table-striped">
+              <table class="table table-striped mt-2">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                    <th>No</th>
+                    <th>Nama Kategori</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
+                  <?php
+                  include "koneksi.php";
+                  $no = 1;
+
+                  //cek apakah ada pencarian
+                  $squery = isset($_POST['query']) ?
+                  mysqli_real_escape_string($koneksi, $_POST['query']) : '';
+
+                  //query dasar
+                  $sql_query = "SELECT id_kategori, nm_kategori FROM tb_kategori";
+
+                  //jika ada pencarian, tambahkan kondisi WHERE
+                  if (!empty($squery)) {
+                    $sql_query .= " WHERE nm_kategori LIKE 
+                    '%$squery%'";
+                  }
+
+                  $sql = mysqli_query($koneksi, $sql_query);
+
+                  if (mysqli_num_rows($sql) > 0) {
+                    while ($hasil = mysqli_fetch_array($sql)) {
+                  ?>
+
+                      <tr>
+                    </td><?php echo $no++; ?></td>
+                    <td><?php echo $hasil
+                    ['nm_kategori']; ?></td>
+                    <td>
+                      <a href='e_kategori.php?id=<?
+                      php echo $hasil
+                      ['id_kategori']; ?>"
+                      class="btn btn-danger"
+                      onclick="return confirm
+                      ('pakah Anda yakin  Ingin Menghapus Data?')">
+                  "
+                    <?php
+                    }
+                  } else {
+                    ?>
+                    <tr>
+                      <td colspan="3"
+                      class="text-center"> Data tidak ditemukan</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                  </tr>
+                  <?php
+                  }
+                  ?>
+
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
@@ -543,41 +565,10 @@
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-body">
-
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Table with hoverable rows -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Primary Color Bordered Table -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End small tables -->
-
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
+      </div>                
+
+   </section>
 
   </main><!-- End #main -->
 
