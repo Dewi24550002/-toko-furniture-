@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -67,145 +69,6 @@
           </a>
         </li><!-- End Search Icon-->
 
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-          </a><!-- End Notification Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-
-          </ul><!-- End Notification Dropdown Items -->
-
-        </li><!-- End Notification Nav -->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-          </a><!-- End Messages Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
-
-          </ul><!-- End Messages Dropdown Items -->
-
-        </li><!-- End Messages Nav -->
-
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -217,20 +80,20 @@
               <h6>Dewi Nuraeni</h6>
               <span>Admin</span>
             </li>
-            </li>
+        </li>
 
-              <hr class="dropdown-divider">
-            </li>
+        <hr class="dropdown-divider">
+        </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
+        <li>
+          <a class="dropdown-item d-flex align-items-center" href="#">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Sign Out</span>
+          </a>
+        </li>
 
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
+      </ul><!-- End Profile Dropdown Items -->
+      </li><!-- End Profile Nav -->
 
       </ul>
     </nav><!-- End Icons Navigation -->
@@ -243,168 +106,57 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link " href="index.php">
           <i class="bi bi-grid"></i>
           <span>Beranda</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+      </li><!-- End Beranda Nav -->
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="kategori.php">
           <i class="bi bi-amd"></i>
-          <span>kategori produk</span>
+          <span>Kategori Produk</span>
         </a>
-      </li><!-- End Profile Page Nav -->
+      </li><!-- End Kategori Produk Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="produk.php">
           <i class="bi bi-question-circle"></i>
-          <span>produk</span>
+          <span>Produk</span>
         </a>
-      </li><!-- End produk Page Nav -->
+      </li><!-- End Produk Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="keranjang.php">
-
-          <span>keranjang</span>
+          <i class="bi bi-envelope"></i>
+          <span>Keranjang</span>
         </a>
-      </li><!-- End Contact Page Nav -->
+      </li><!-- End Keranjang Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Transaksi.php">
+        <a class="nav-link collapsed" href="transaksi.php">
           <i class="bi bi-card-list"></i>
           <span>Transaksi</span>
         </a>
-      </li><!-- End Register Page Nav -->
+      </li><!-- End Transaksi Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Laporan.php">
+        <a class="nav-link collapsed" href="laporan.php">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Laporan</span>
         </a>
-      </li><!-- End Login Page Nav -->
+      </li><!-- End Laporan Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Pengguna.php">
+        <a class="nav-link collapsed" href="pengguna.php">
           <i class="bi bi-dash-circle"></i>
           <span>Pengguna</span>
         </a>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          
-      </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          
-        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-general.html" class="active">
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
-
-      <li class="nav-item">
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>Boxicons</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-
-      </li><!-- End Login Page Nav -->
-
-      <li class="nav-item">
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
-
-          
-      </li><!-- End Blank Page Nav -->
-
+      </li><!-- End Pengguna Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
+
 
   <main id="main" class="main">
 
@@ -424,151 +176,81 @@
           <div class="card-body">
             <a href="t_kategori.php" class="btn btn-primary mt-3">
               <i class="bi-plus-lg"></i> Tambah Data
-         </a>
-    </div>
-  </div>
-</div>
-
-
-    <section class="section">
-      <div class="row">
-        <div class="col-lg-6">
-
-          <div class="card">
-            <div class="card-body">
-              <!-- Default Table -->
-              <table class="table">
-                <thead>
-                  <tr>
-     
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Default Table Example -->
-            </div>
+            </a>
           </div>
-
-          <div class="card">
-            <div class="card-body">
-             
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Dark Table -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Active Table -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              
-                    
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Tables without borders -->
-
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              
-                  </tr>
-                </tbody>
-              </table>
-              <!-- End Table Variants -->
-
-            </div>
-          </div>
-
         </div>
+      </div>
 
-        <div class="col-lg-6">
 
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Table with stripped rows</h5>
+      <section class="section">
+        <div class="row">
+          <div class="col-lg-12">
 
-              <!-- Table with stripped rows -->
-              <table class="table table-striped mt-2">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama Kategori</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  include "koneksi.php";
-                  $no = 1;
+            <div class="card">
+              <div class="card-body">
 
-                  //cek apakah ada pencarian
-                  $squery = isset($_POST['query']) ?
-                  mysqli_real_escape_string($koneksi, $_POST['query']) : '';
-
-                  //query dasar
-                  $sql_query = "SELECT id_kategori, nm_kategori FROM tb_kategori";
-
-                  //jika ada pencarian, tambahkan kondisi WHERE
-                  if (!empty($squery)) {
-                    $sql_query .= " WHERE nm_kategori LIKE 
-                    '%$squery%'";
-                  }
-
-                  $sql = mysqli_query($koneksi, $sql_query);
-
-                  if (mysqli_num_rows($sql) > 0) {
-                    while ($hasil = mysqli_fetch_array($sql)) {
-                  ?>
-
-                      <tr>
-                    </td><?php echo $no++; ?></td>
-                    <td><?php echo $hasil
-                    ['nm_kategori']; ?></td>
-                    <td>
-                      <a href='e_kategori.php?id=<?
-                      php echo $hasil
-                      ['id_kategori']; ?>"
-                      class="btn btn-danger"
-                      onclick="return confirm
-                      ('pakah Anda yakin  Ingin Menghapus Data?')">
-                  "
-                    <?php
-                    }
-                  } else {
-                    ?>
+                <!-- Table with stripped rows -->
+                <table class="table table-striped mt-2">
+                  <thead>
                     <tr>
-                      <td colspan="3"
-                      class="text-center"> Data tidak ditemukan</td>
-                  </tr>
-                  <?php
-                  }
-                  ?>
+                      <th>No</th>
+                      <th>Nama Kategori</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                    include "koneksi.php";
+                    $no = 1;
 
-                </tbody>
-              </table>
-              <!-- End Table with stripped rows -->
+                    //cek apakah ada pencarian
+                    $squery = isset($_POST['query']) ?
+                      mysqli_real_escape_string($koneksi, $_POST['query']) : '';
 
+                    //query dasar
+                    $sql_query = "SELECT id_kategori, nm_kategori FROM tb_kategori";
+
+                    //jika ada pencarian, tambahkan kondisi WHERE
+                    if (!empty($squery)) {
+                      $sql_query .= " WHERE nm_kategori LIKE '%$squery%'";
+                    }
+
+                    $sql = mysqli_query($koneksi, $sql_query);
+
+                    if (mysqli_num_rows($sql) > 0) {
+                      while ($hasil = mysqli_fetch_array($sql)) {
+                        ?>
+                        <tr>
+                          <td><?php echo $no++; ?></td>
+                          <td><?php echo $hasil['nm_kategori']; ?></td>
+                          <td><a href="e_kategori.php?id=<?php echo $hasil['id_kategori']; ?>" class="btn btn-warning"><i
+                                class="bi bi-pencil-square"></i></a>
+                            <a href="h_kategori.php?id=<?php echo $hasil['id_kategori']; ?>;" class="btn btn-danger"
+                              onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
+                              <i class="bi bi-trash"></i></a>
+                          </td>
+                        </tr>
+                        <?php
+                      }
+                    } else {
+                      ?>
+                      <tr>
+                        <td colspan="3" class="text-center">Belum Ada Data</td>
+                        <?php
+                    }
+                    ?>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- End Table with stripped rows -->
+
+              </div>
             </div>
+
           </div>
-
         </div>
-      </div>                
 
-   </section>
+      </section>
 
   </main><!-- End #main -->
 
@@ -586,7 +268,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
