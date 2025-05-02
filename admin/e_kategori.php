@@ -1,26 +1,25 @@
 <?php
 include "koneksi.php";
 
-if (isset($_POST['simpan'])) {
-  $auto = mysqli_query($koneksi, "select max(id_kategori) as max_code from tb_kategori");
-  $hasil = mysqli_fetch_array($auto);
-  $code = $hasil['max_code'];
-  $urutan = (int)substr($code, 1, 3);
-  $urutan++;
-  $huruf = "K";
-  $id_kategori = $huruf . sprintf("%03s", $urutan);
-  $nm_kategori = $_POST['nm_kategori'];
+$id = $_GET['id'];
+$sql = mysqli_query($koneksi, "SELECT * FROM tb_kategori WHERE id_kategori ='$id'");
+$data = mysqli_fetch_array($sql);
 
-  $query = mysqli_query($koneksi, "INSERT INTO tb_kategori(id_kategori, nm_kategori) VALUES ('$id_kategori', '$nm_kategori')");
-  if ($query) {
-    echo "<script>alert('Data berhasil ditambahkan!')</script>";
-    header("refresh:0, kategori.php");
-  } else {
-    echo "<script>alert('Data gagal ditambahkan!')</script>";
-    header("refresh:0, kategori.php");
-  }
+if (isset($_POST['simpan'])) {
+    $nm_kategori = $_POST['nm_kategori'];
+
+    $query = mysqli_query($koneksi, "UPDATE tb_kategori SET nm_kategori ='$nm_kategori' WHERE id_kategori ='$id'");
+    if ($query) {
+      echo "<script>alert('Data Berhasil Diubah')</script>";
+      header("refresh:0; kategori.php");
+    } else {
+      echo "<script>alert('Data Gagal Diubah!')</script>";
+      header("refresh:0; kategori.php");
+    }
+
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +27,7 @@ if (isset($_POST['simpan'])) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kategori - Tokofurniture Admin</title>
+  <title>Kategori Produk - Tokofurniture Admin</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -177,7 +176,7 @@ if (isset($_POST['simpan'])) {
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
           <li class="breadcrumb-item">Kategori Produk</li>
-          <li class="breadcrumb-item active">Tambah</li>
+          <li class="breadcrumb-item active">Edit</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -192,7 +191,7 @@ if (isset($_POST['simpan'])) {
               <form class="row g-3 mt-2" method="post">
                 <div class="col-12">
                   <label for="nm_kategori" class="form-label">Nama Kategori</label>
-                  <input type="text" class="form-control" id="nm_kategori" name="nm_kategori"  placeholder="Masukkan Nama Kategori Produk">
+                  <input type="text" class="form-control" id="nm_kategori" name="nm_kategori" placeholder="Masukkan Nama Kategori Produk" value="<?php echo $data['nm_kategori']; ?>">
                 </div>
                 <div class="text-center">
                   <button type="reset" class="btn btn-secondary">Reset</button>
