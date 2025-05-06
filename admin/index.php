@@ -44,7 +44,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Tokofurniture</span>
       </a>
@@ -151,7 +151,7 @@
       <h1>Beranda</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
           <li class="breadcrumb-item active">Beranda</li>
         </ol>
       </nav>
@@ -185,7 +185,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-cart"></i> <!-- Ikon Keranjang belanja -->
+                      <i class="bi bi-basket"></i> <!-- Ikon Keranjang belanja -->
                     </div>
                     <div class="ps-3">
                       <h6>145</h6>
