@@ -63,7 +63,7 @@ if (isset($_POST['update'])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Produk - Furnimart Admin</title>
+    <title>Produk - Tokofurniture Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -96,7 +96,7 @@ if (isset($_POST['update'])) {
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.php" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">Furnimart</span>
+                <span class="d-none d-lg-block">Tokofurniture</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -105,7 +105,7 @@ if (isset($_POST['update'])) {
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets/img/user.jpg" alt="Profile" class="rounded-circle">
+                        <img src="assets/img/bebek.png" alt="Profile" class="rounded-circle">
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -202,6 +202,8 @@ if (isset($_POST['update'])) {
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
+
+                        <!-- Vertical Form -->
                             <form class="row g-3 mt-2" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="gambar_lama" value="<?php echo $data['gambar']; ?>">
                                 <div class="col-12">
@@ -242,8 +244,8 @@ if (isset($_POST['update'])) {
                                     <?php } ?>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary" name="update">Update</button>
-                                    <a href="produk.php" class="btn btn-secondary">Kembali</a>
+                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                    <button type="submit" class="btn btn-primary" name="update">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -257,10 +259,10 @@ if (isset($_POST['update'])) {
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>Furnimart</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Tokofurniture</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="https://instagram.com/dea.salsa.503/" target="_blank">Dea Salsabilla</a>
+            Designed by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
         </div>
     </footer><!-- End Footer -->
 

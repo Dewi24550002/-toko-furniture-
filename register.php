@@ -1,3 +1,11 @@
+<?php
+
+require 'admin/koneksi.php';
+require 'function.php';
+$sql = mysqli_query($koneksi, "select * from tb_user");
+$data = mysqli_fetch_array($sql);
+?>
+
 <!doctype html>
 <html lang="zxx">
 
@@ -5,7 +13,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>aranoz</title>
+    <title>Register - Tokofurniture</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -27,97 +35,19 @@
 </head>
 
 <body>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (registrasi($_POST)) {
+            echo "<script>alert('User baru berhasil ditambahkan');";
+            echo "window.location.href = 'login.php';</script>";
+            exit;
+        } else {
+            echo "<script>alert('Registrasi gagal');</script>";
+        }
+    }
+    ?>
     <!--::header part start::-->
-    <header class="main_menu home_menu">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.html">Home</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Shop
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="category.html"> shop category</a>
-                                        <a class="dropdown-item" href="single-product.html">product details</a>
-                                        
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        pages
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="login.html"> login</a>
-                                        <a class="dropdown-item" href="tracking.html">tracking</a>
-                                        <a class="dropdown-item" href="checkout.html">product checkout</a>
-                                        <a class="dropdown-item" href="cart.html">shopping cart</a>
-                                        <a class="dropdown-item" href="confirmation.html">confirmation</a>
-                                        <a class="dropdown-item" href="elements.html">elements</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        blog
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="blog.html"> blog</a>
-                                        <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                    </div>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="hearer_icon d-flex">
-                            <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <a href=""><i class="ti-heart"></i></a>
-                            <div class="dropdown cart">
-                                <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cart-plus"></i>
-                                </a>
-                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <div class="single_product">
     
-                                    </div>
-                                </div> -->
-                                
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="search_input" id="search_input_box">
-            <div class="container ">
-                <form class="d-flex justify-content-between search-inner">
-                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                    <button type="submit" class="btn"></button>
-                    <span class="ti-close" id="close_search" title="Close Search"></span>
-                </form>
-            </div>
-        </div>
-    </header>
-    <!-- Header part end-->
-
 
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg">
@@ -126,8 +56,8 @@
                 <div class="col-lg-8">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Tracking Order</h2>
-                            <p>Home <span>-</span> Tracking Order</p>
+                            <h2>Register Sekarang!!</h2>
+                            
                         </div>
                     </div>
                 </div>
@@ -136,43 +66,40 @@
     </section>
     <!-- breadcrumb start-->
 
-    <!--================login_part Area =================-->
+    <!--================Register_part Area =================-->
     <section class="login_part padding_top">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6">
                     <div class="login_part_text text-center">
                         <div class="login_part_text_iner">
-                            <h2>New to our Shop?</h2>
-                            <p>There are advances being made in science and technology
-                                everyday, and a good example of this is the</p>
-                            <a href="#" class="btn_3">Create an Account</a>
+                            <h2>Sudah punya akun di Tokofurniture?</h2>
+                            <p>Masuk sekarang dan nikmati pengalaman berbelanja furniture terbaik dengan penawaran menarik serta kemudahan transaksi.</p>
+                            <a href="login.php" class="btn_3">Masuk Sekarang</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="login_part_form">
                         <div class="login_part_form_iner">
-                            <h3>Welcome Back ! <br>
-                                Please Sign in now</h3>
-                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                            <h3>Buat Akun Baru <br>
+                                Bergabung dengan Tokofurniture sekarang!</h3>
+                            <form class="row contact_form" action="#" method="post">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="name" value=""
+                                    <input type="text" class="form-control" id="username" name="username" 
                                         placeholder="Username">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" value=""
-                                        placeholder="Password">
+                                    <input type="password" class="form-control" id="password" name="password" value="" placeholder="Password">
+                                </div>
+                                    <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="confirm_password" name="password2"
+                                        placeholder="Konfirmasi Password">
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <div class="creat_account d-flex align-items-center">
-                                        <input type="checkbox" id="f-option" name="selector">
-                                        <label for="f-option">Remember me</label>
-                                    </div>
-                                    <button type="submit" value="submit" class="btn_3">
-                                        log in
+                                    <button type="submit" value="submit" class="btn_3" name="register">
+                                        Daftar Sekarang
                                     </button>
-                                    <a class="lost_pass" href="#">forget password?</a>
                                 </div>
                             </form>
                         </div>
@@ -259,7 +186,7 @@
                     <div class="col-lg-8">
                         <div class="copyright_text">
                             <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
                         </div>
                     </div>

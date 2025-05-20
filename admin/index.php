@@ -26,7 +26,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Beranda - Furnimart Admin</title>
+  <title>Beranda - Tokofurniture Admin</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -60,7 +60,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Furnimart</span>
+        <span class="d-none d-lg-block">Tokofurniture</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -70,7 +70,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/user.jpg" alt="Profile" class="rounded-circle">
+            <img src="assets/img/bebek.png" alt="Profile" class="rounded-circle">
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -176,7 +176,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             <div class="col-12">
               <div class="card info-card customers-card shadow-sm w-100">
                 <div class="card-body text-center py-4">
-                  <h4 class="mb-2">Selamat datang di Website Admin <strong>Furnimart!</strong></h4>
+                  <h4 class="mb-2">Selamat datang di Website Admin <strong>Tokofurniture!</strong></h4>
                   <p class="text-muted small mb-0">Kelola produk, transaksi, dan pelanggan dengan mudah.</p>
                 </div>
               </div>
@@ -258,7 +258,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Furnimart</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Tokofurniture</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
