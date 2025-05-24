@@ -3,7 +3,7 @@ include 'admin/koneksi.php';
 session_start();
 
 if (!(isset($_SESSION['id_user']))) {
-    echo "<script>alert('Silakan login terlebih dahulu'); window.location='login.php';</script>";
+    echo "<script>alert('Silahkan login terlebih dahulu'); window.location='login.php';</script>";
     exit;
 }
 

@@ -26,84 +26,132 @@
 </head>
 
 <body>
-   <!--::header part start::-->
-   <header class="main_menu home_menu">
+  <!--::header part start::-->
+  <header class="main_menu home_menu">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="index.html"> 
-                      <h1 class="m-0">Tokofurniture</h1> </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                    </button>
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html">
+              <h1 class="m-0">Tokofurniture</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="menu_icon"><i class="fas fa-bars"></i></span>
+            </button>
 
-                    <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Beranda</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   Belanja
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                  </a>
-                                    
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                  </a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                    
-                                </div>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Hubungi Kami</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="hearer_icon d-flex">
-                        <a id="search_1" href="javascript:void(0)"></a>
-                        
-                        <div class="dropdown cart">
-                            <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cart-plus"></i>
-                            </a>
-                            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Beranda</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Belanja
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                    </a>
+
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+
+                  </div>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Hubungi Kami</a>
+                </li>
+              </ul>
+            </div>
+            <?php session_start(); ?>
+            <?php if (isset($_SESSION['username'])): ?>
+              <div class="header_icon d-flex">
+                <!-- Cart Link -->
+                <?php
+                include 'admin/koneksi.php';
+
+                $user_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
+
+                if ($user_id) {
+                  $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
+                  $result = mysqli_query($koneksi, $query);
+                  $data = mysqli_fetch_assoc($result);
+                  $jumlah_item = isset($data['total']) ? $data['total'] : 0;
+                } else {
+                  $jumlah_item = 0;
+                }
+                ?>
+                <a href="cart.php" id="cartLink" style="position: relative; display: inline-block;">
+                  <i class="fas fa-cart-plus" style="font-size: 16px;"></i>
+                  <span class="cart-badge"><?= $jumlah_item ?></span>
+                </a>
+                <!-- User Dropdown -->
+                <div class="dropdown user">
+                  <a class="dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                    <span class="ml-2 text-dark"><?= htmlspecialchars($_SESSION['username']); ?></span>
+                    <!-- Menampilkan username dari session -->
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                  </div>
+                </div>
+              </div>
+
+            <?php else: ?>
+              <!-- Login Button -->
+              <a href="login.php" class="btn btn-primary ml-3 px-3 py-2" style="border-radius: 20px;">Login</a>
+            <?php endif; ?>
+
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header part end-->
+
+  <div class="hearer_icon d-flex">
+    <a id="search_1" href="javascript:void(0)"></a>
+
+    <div class="dropdown cart">
+      <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <i class="fas fa-cart-plus"></i>
+      </a>
+      <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <div class="single_product">
 
                                 </div>
                             </div> -->
-                            
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
+
     </div>
-    <div class="search_input" id="search_input_box">
-        <div class="container ">
-            <form class="d-flex justify-content-between search-inner">
-                <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                <button type="submit" class="btn"></button>
-                <span class="ti-close" id="close_search" title="Close Search"></span>
-            </form>
-        </div>
+  </div>
+  </nav>
+  </div>
+  </div>
+  </div>
+  <div class="search_input" id="search_input_box">
+    <div class="container ">
+      <form class="d-flex justify-content-between search-inner">
+        <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+        <button type="submit" class="btn"></button>
+        <span class="ti-close" id="close_search" title="Close Search"></span>
+      </form>
     </div>
-</header>
-    <!-- Header part end-->
+  </div>
+  </header>
+  <!-- Header part end-->
 
   <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg">
@@ -146,7 +194,7 @@
                   <span>Kategori</span> : Furniture Kantor</a>
               </li>
               <li>
-                
+
               </li>
             </ul>
             <p>
@@ -177,7 +225,7 @@
         FROM tb_produk p
         JOIN tb_kategori k ON p.id_kategori = k.id_kategori
         WHERE p.id_produk = '$id_produk'";
-        
+
   $result = $koneksi->query($query);
   $produk = $result->fetch_assoc();
 
@@ -192,78 +240,78 @@
 
     // Cek stok langsung dari database (lebih aman)
     $cek_stok = $koneksi->query("SELECT stok FROM tb_produk WHERE id_produk = '$id_produk'");
-$data_stok = $cek_stok->fetch_assoc();
+    $data_stok = $cek_stok->fetch_assoc();
 
-if ($qty > $data_stok['stok']) {
-   echo "<script>alert('Stok tidak mencukupi! Stok tersedia: {$data_stok['stok']}')</script>";
-   } else {
-    // Buat id_pesanan otomatis dengan format M001, M002, dst.
-    $query_id = "SELECT id_pesanan FROM tb_pesanan ORDER BY id_pesanan DESC LIMIT 1";
-    $result_id = $koneksi->query($query_id);
-    if ($result_id->num_rows > 0) {
+    if ($qty > $data_stok['stok']) {
+      echo "<script>alert('Stok tidak mencukupi! Stok tersedia: {$data_stok['stok']}')</script>";
+    } else {
+      // Buat id_pesanan otomatis dengan format M001, M002, dst.
+      $query_id = "SELECT id_pesanan FROM tb_pesanan ORDER BY id_pesanan DESC LIMIT 1";
+      $result_id = $koneksi->query($query_id);
+      if ($result_id->num_rows > 0) {
         $row = $result_id->fetch_assoc();
         $last_id = intval(substr($row['id_pesanan'], 1)); // Ambil angka dari id terakhir
         $new_id = "M" . str_pad($last_id + 1, 3, "0", STR_PAD_LEFT); // Format M001, M002
-    } else {
-      $new_id = "M001"; // Jika belum ada pesanan, mulai dari M001
-
-  }
-  // Simpan ke database
-    $query_insert = "INSERT INTO tb_pesanan (id_pesanan, id_produk, qty, total, id_user)
+      } else {
+        $new_id = "M001"; // Jika belum ada pesanan, mulai dari M001
+  
+      }
+      // Simpan ke database
+      $query_insert = "INSERT INTO tb_pesanan (id_pesanan, id_produk, qty, total, id_user)
                      VALUES ('$new_id', '$id_produk', '$qty', '$total', '$id_user')";
 
-    if ($koneksi->query($query_insert) === TRUE) {
+      if ($koneksi->query($query_insert) === TRUE) {
         echo "<script>alert('Produk berhasil ditambahkan ke keranjang!'); window.location.href='belanja.php';</script>";
-    } else {
-        echo "<script>alert('Terjadi kesalahan saat menambahkan ke keranjang!');</script>";    
+      } else {
+        echo "<script>alert('Terjadi kesalahan saat menambahkan ke keranjang!');</script>";
+      }
     }
   }
-}
   ?>
   <!-- Kode HTML Produk -->
-<div class="product_image_area section_padding">
+  <div class="product_image_area section_padding">
     <div class="container">
-        <div class="row s_product_inner justify-content-between">
-            <div class="col-lg-7 col-xl-7">
-                <div class="product_slider_img">
-                    <div id="vertical">
-                        <div data-thumb="admin/produk_img/<?php echo $produk['gambar']; ?>">
-                            <img src="admin/produk_img/<?php echo $produk['gambar']; ?>"
-                                 style="width: 779px; height: 525px; object-fit: cover;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 col-xl-4">
-                <div class="s_product_text">
-                    <h3><?php echo $produk['nm_produk']; ?></h3>
-                    <h2>Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?></h2>
-                    <ul class="list">
-                        <li>
-                            <a class="active" href="#">
-                                <span>Kategori</span> : <?php echo $produk['nm_kategori']; ?>
-                            </a>
-                        </li>
-                    </ul>
-                    <p><?php echo nl2br($produk['desk']); ?></p>
-
-                    <form method="post">
-                        <div class="card_area d-flex justify-content-between align-items-center">
-                            <div class="product_count">
-                                <span class="inumber-decrement"> <i class="ti-minus"></i> </span>
-                                <input class="input-number" type="text" name="qty" value="1">
-                                min="1" max="<?php echo $produk['stok']; ?>">
-                                <span class="number-increment"><i class="ti-plus"></i></span>
-                           </div>
-                           <button type="submit" name="add_to_cart" class="btn_3">Keranjang</button>
-                        </div>
-                      </form>
-
-                  </div>
-                </div>
+      <div class="row s_product_inner justify-content-between">
+        <div class="col-lg-7 col-xl-7">
+          <div class="product_slider_img">
+            <div id="vertical">
+              <div data-thumb="admin/produk_img/<?php echo $produk['gambar']; ?>">
+                <img src="admin/produk_img/<?php echo $produk['gambar']; ?>"
+                  style="width: 779px; height: 525px; object-fit: cover;">
               </div>
             </div>
+          </div>
         </div>
+        <div class="col-lg-5 col-xl-4">
+          <div class="s_product_text">
+            <h3><?php echo $produk['nm_produk']; ?></h3>
+            <h2>Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?></h2>
+            <ul class="list">
+              <li>
+                <a class="active" href="#">
+                  <span>Kategori</span> : <?php echo $produk['nm_kategori']; ?>
+                </a>
+              </li>
+            </ul>
+            <p><?php echo nl2br($produk['desk']); ?></p>
+
+            <form method="post">
+              <div class="card_area d-flex justify-content-between align-items-center">
+                <div class="product_count">
+                  <span class="inumber-decrement"> <i class="ti-minus"></i> </span>
+                  <input class="input-number" type="text" name="qty" value="1">
+                  min="1" max="<?php echo $produk['stok']; ?>">
+                  <span class="number-increment"><i class="ti-plus"></i></span>
+                </div>
+                <button type="submit" name="add_to_cart" class="btn_3">Keranjang</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!--================Product Description Area =================-->
@@ -327,50 +375,49 @@ if ($qty > $data_stok['stok']) {
             <?php while ($produk_lain = $result_produk_lain->fetch_assoc()) { ?>
               <div class="single_product_item">
                 <img src="img/product/gambar_1.jpeg/<?php echo $produk_lain['gambar']; ?>"
-                alt="<?php echo $produk_lain['nm_produk']; ?>" style=""width: 200px;
-                height: 210px; object-fit: cover;>
+                  alt="<?php echo $produk_lain['nm_produk']; ?>" style="" width: 200px; height: 210px; object-fit: cover;>
                 <div class="single_product_text">
-                <h4><?php echo $produk_lain['nm_produk']; ?></h4>
-                <h3>Rp <?php echo number_format($produk_lain['harga'], 0, ',', '.'); ?></h3>
-                        <a href="detail_produk.php?id=<?php echo $produk_lain['id_produk']; ?>"
-                           class="add_cart">Lihat Detail</a>
-                      </div>
-                  </div>
-              <?php } ?>
-          </div>
-      </div>
-   </div>
-            <div class="single_product_item">
-              <img src="img/product/gambar_2.jpeg" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>Rp. 450.000</h3>
+                  <h4><?php echo $produk_lain['nm_produk']; ?></h4>
+                  <h3>Rp <?php echo number_format($produk_lain['harga'], 0, ',', '.'); ?></h3>
+                  <a href="detail_produk.php?id=<?php echo $produk_lain['id_produk']; ?>" class="add_cart">Lihat
+                    Detail</a>
+                </div>
               </div>
-            </div>
-            <div class="single_product_item">
-              <img src="img/product/gambar_3.jpeg" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>Rp. 230.000</h3>
-              </div>
-            </div>
-            <div class="single_product_item">
-              <img src="img/product/gambar_4.jpeg" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>Rp. 670.000</h3>
-              </div>
-            </div>
-            <div class="single_product_item">
-              <img src="img/product/gambar_5.jpeg" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>Rp. 345.000</h3>
-              </div>
-            </div>
+            <?php } ?>
           </div>
         </div>
       </div>
+      <div class="single_product_item">
+        <img src="img/product/gambar_2.jpeg" alt="">
+        <div class="single_product_text">
+          <h4>Quartz Belt Watch</h4>
+          <h3>Rp. 450.000</h3>
+        </div>
+      </div>
+      <div class="single_product_item">
+        <img src="img/product/gambar_3.jpeg" alt="">
+        <div class="single_product_text">
+          <h4>Quartz Belt Watch</h4>
+          <h3>Rp. 230.000</h3>
+        </div>
+      </div>
+      <div class="single_product_item">
+        <img src="img/product/gambar_4.jpeg" alt="">
+        <div class="single_product_text">
+          <h4>Quartz Belt Watch</h4>
+          <h3>Rp. 670.000</h3>
+        </div>
+      </div>
+      <div class="single_product_item">
+        <img src="img/product/gambar_5.jpeg" alt="">
+        <div class="single_product_text">
+          <h4>Quartz Belt Watch</h4>
+          <h3>Rp. 345.000</h3>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
     </div>
   </section>
   <!-- product_list part end-->
@@ -381,10 +428,10 @@ if ($qty > $data_stok['stok']) {
       <div class="row justify-content-around">
         <div class="col-sm-6 col-lg-2">
 
-            </div>
-          </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
     <div class="copyright_part">
       <div class="container">
@@ -392,14 +439,18 @@ if ($qty > $data_stok['stok']) {
           <div class="col-lg-8">
             <div class="copyright_text">
               <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Tokofurniture <i class="ti-heart" aria-hidden="true"></i> by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | Tokofurniture <i
+                  class="ti-heart" aria-hidden="true"></i> by <a
+                  href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </P>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="footer_icon social_icon">
               <ul class="list-unstyled">
-                
+
                 <li><a href="#" class="single_social_icon"><i class="bi bi-instagram"></i></a></li>
               </ul>
             </div>
