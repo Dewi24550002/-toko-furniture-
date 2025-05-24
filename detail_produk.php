@@ -143,15 +143,14 @@
             <ul class="list">
               <li>
                 <a class="active" href="#">
-                  <span>Category</span> : Household</a>
+                  <span>Kategori</span> : Furniture Kantor</a>
               </li>
               <li>
-                <a href="#"> <span>Availibility</span> : In Stock</a>
+                
               </li>
             </ul>
             <p>
-              First replenish living. Creepeth image image. Creeping can't, won't called.
-              Two fruitful let days signs sea together all land fly subdue
+              Sofa L/Sofa Sudut/Sofa L Minimalis
             </p>
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count">
@@ -159,8 +158,8 @@
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="ti-plus"></i></span>
               </div>
-              <a href="#" class="btn_3">add to cart</a>
-              <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+              <a href="#" class="btn_3">KERANJANG</a>
+
             </div>
           </div>
         </div>
@@ -168,6 +167,104 @@
     </div>
   </div>
   <!--================End Single Product Area =================-->
+  <?php
+  include 'Admin/koneksi.php';
+
+  // Pastikan ada parameter id_produk yang dikirim dari URL
+  $id_produk = isset($_GET['id']) ? mysqli_real_escape_string($koneksi, $_GET['id']) : '';
+
+  $query = "SELECT p.nm_produk, p.harga, p.stok, p.desk, p.gambar, k.nm_kategori
+        FROM tb_produk p
+        JOIN tb_kategori k ON p.id_kategori = k.id_kategori
+        WHERE p.id_produk = '$id_produk'";
+        
+  $result = $koneksi->query($query);
+  $produk = $result->fetch_assoc();
+
+  // Tambahkan pesanan ke database
+  if (!isset($_SESSION['login'])) {
+    echo "<script>alert('Silahkan login terlebih dahulu'); window.location.href='login.php';
+    </script>";
+  } else {
+    $id_user = $_SESSION['id_user'];
+    $qty = intval($_POST['qty']);
+    $total = $produk['harga'] * $qty;
+
+    // Cek stok langsung dari database (lebih aman)
+    $cek_stok = $koneksi->query("SELECT stok FROM tb_produk WHERE id_produk = '$id_produk'");
+$data_stok = $cek_stok->fetch_assoc();
+
+if ($qty > $data_stok['stok']) {
+   echo "<script>alert('Stok tidak mencukupi! Stok tersedia: {$data_stok['stok']}')</script>";
+   } else {
+    // Buat id_pesanan otomatis dengan format M001, M002, dst.
+    $query_id = "SELECT id_pesanan FROM tb_pesanan ORDER BY id_pesanan DESC LIMIT 1";
+    $result_id = $koneksi->query($query_id);
+    if ($result_id->num_rows > 0) {
+        $row = $result_id->fetch_assoc();
+        $last_id = intval(substr($row['id_pesanan'], 1)); // Ambil angka dari id terakhir
+        $new_id = "M" . str_pad($last_id + 1, 3, "0", STR_PAD_LEFT); // Format M001, M002
+    } else {
+      $new_id = "M001"; // Jika belum ada pesanan, mulai dari M001
+
+  }
+  // Simpan ke database
+    $query_insert = "INSERT INTO tb_pesanan (id_pesanan, id_produk, qty, total, id_user)
+                     VALUES ('$new_id', '$id_produk', '$qty', '$total', '$id_user')";
+
+    if ($koneksi->query($query_insert) === TRUE) {
+        echo "<script>alert('Produk berhasil ditambahkan ke keranjang!'); window.location.href='belanja.php';</script>";
+    } else {
+        echo "<script>alert('Terjadi kesalahan saat menambahkan ke keranjang!');</script>";    
+    }
+  }
+}
+  ?>
+  <!-- Kode HTML Produk -->
+<div class="product_image_area section_padding">
+    <div class="container">
+        <div class="row s_product_inner justify-content-between">
+            <div class="col-lg-7 col-xl-7">
+                <div class="product_slider_img">
+                    <div id="vertical">
+                        <div data-thumb="admin/produk_img/<?php echo $produk['gambar']; ?>">
+                            <img src="admin/produk_img/<?php echo $produk['gambar']; ?>"
+                                 style="width: 779px; height: 525px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-xl-4">
+                <div class="s_product_text">
+                    <h3><?php echo $produk['nm_produk']; ?></h3>
+                    <h2>Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?></h2>
+                    <ul class="list">
+                        <li>
+                            <a class="active" href="#">
+                                <span>Kategori</span> : <?php echo $produk['nm_kategori']; ?>
+                            </a>
+                        </li>
+                    </ul>
+                    <p><?php echo nl2br($produk['desk']); ?></p>
+
+                    <form method="post">
+                        <div class="card_area d-flex justify-content-between align-items-center">
+                            <div class="product_count">
+                                <span class="inumber-decrement"> <i class="ti-minus"></i> </span>
+                                <input class="input-number" type="text" name="qty" value="1">
+                                min="1" max="<?php echo $produk['stok']; ?>">
+                                <span class="number-increment"><i class="ti-plus"></i></span>
+                           </div>
+                           <button type="submit" name="add_to_cart" class="btn_3">Keranjang</button>
+                        </div>
+                      </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
 
   <!--================Product Description Area =================-->
   <section class="product_description_area">
@@ -184,35 +281,7 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <p>
-            Beryl Cook is one of Britain’s most talented and amusing artists
-            .Beryl’s pictures feature women of all shapes and sizes enjoying
-            themselves .Born between the two world wars, Beryl Cook eventually
-            left Kendrick School in Reading at the age of 15, where she went
-            to secretarial school and then into an insurance office. After
-            moving to London and then Hampton, she eventually married her next
-            door neighbour from Reading, John Cook. He was an officer in the
-            Merchant Navy and after he left the sea in 1956, they bought a pub
-            for a year before John took a job in Southern Rhodesia with a
-            motor company. Beryl bought their young son a box of watercolours,
-            and when showing him how to use it, she decided that she herself
-            quite enjoyed painting. John subsequently bought her a child’s
-            painting set for her birthday and it was with this that she
-            produced her first significant work, a half-length portrait of a
-            dark-skinned lady with a vacant expression and large drooping
-            breasts. It was aptly named ‘Hangover’ by Beryl’s husband and
-          </p>
-          <p>
-            It is often frustrating to attempt to plan meals that are designed
-            for one. Despite this fact, we are seeing more and more recipe
-            books and Internet websites that are dedicated to the act of
-            cooking for one. Divorce and the death of spouses or grown
-            children leaving for college are all reasons that someone
-            accustomed to cooking for more than one would suddenly need to
-            learn how to adjust all the cooking practices utilized before into
-            a streamlined plan of cooking that is more efficient for one
-            person creating less
-          </p>
+          <p><?php echo nl2br($produk['desk']); ?></p>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="table-responsive">
@@ -223,7 +292,7 @@
                     <h5>Stok</h5>
                   </td>
                   <td>
-                    <h5>3</h5>
+                    <h5><?php echo $produk['stok']; ?></h5>
                   </td>
                 </tr>
               </tbody>
@@ -245,42 +314,58 @@
           </div>
         </div>
       </div>
+      <?php
+      // Ambil produk lain dari database, kecuali produk yang sedang dilihat
+      $query_produk_lain = "SELECT id_produk, nm_produk, harga, gambar FROM tb_produk WHERE id_produk != '$id_produk' LIMIT 5";
+      $result_produk_lain = $koneksi->query($query_produk_lain);
+      ?>
+
+
       <div class="row align-items-center justify-content-between">
         <div class="col-lg-12">
           <div class="best_product_slider owl-carousel">
+            <?php while ($produk_lain = $result_produk_lain->fetch_assoc()) { ?>
+              <div class="single_product_item">
+                <img src="img/product/gambar_1.jpeg/<?php echo $produk_lain['gambar']; ?>"
+                alt="<?php echo $produk_lain['nm_produk']; ?>" style=""width: 200px;
+                height: 210px; object-fit: cover;>
+                <div class="single_product_text">
+                <h4><?php echo $produk_lain['nm_produk']; ?></h4>
+                <h3>Rp <?php echo number_format($produk_lain['harga'], 0, ',', '.'); ?></h3>
+                        <a href="detail_produk.php?id=<?php echo $produk_lain['id_produk']; ?>"
+                           class="add_cart">Lihat Detail</a>
+                      </div>
+                  </div>
+              <?php } ?>
+          </div>
+      </div>
+   </div>
             <div class="single_product_item">
-              <img src="img/product/product_1.png" alt="">
+              <img src="img/product/gambar_2.jpeg" alt="">
               <div class="single_product_text">
                 <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
+                <h3>Rp. 450.000</h3>
               </div>
             </div>
             <div class="single_product_item">
-              <img src="img/product/product_2.png" alt="">
+              <img src="img/product/gambar_3.jpeg" alt="">
               <div class="single_product_text">
                 <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
+                <h3>Rp. 230.000</h3>
               </div>
             </div>
             <div class="single_product_item">
-              <img src="img/product/product_3.png" alt="">
+              <img src="img/product/gambar_4.jpeg" alt="">
               <div class="single_product_text">
                 <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
+                <h3>Rp. 670.000</h3>
               </div>
             </div>
             <div class="single_product_item">
-              <img src="img/product/product_4.png" alt="">
+              <img src="img/product/gambar_5.jpeg" alt="">
               <div class="single_product_text">
                 <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
-              </div>
-            </div>
-            <div class="single_product_item">
-              <img src="img/product/product_5.png" alt="">
-              <div class="single_product_text">
-                <h4>Quartz Belt Watch</h4>
-                <h3>$150.00</h3>
+                <h3>Rp. 345.000</h3>
               </div>
             </div>
           </div>
@@ -295,65 +380,7 @@
     <div class="container">
       <div class="row justify-content-around">
         <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Top Products</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Managed Website</a></li>
-              <li><a href="">Manage Reputation</a></li>
-              <li><a href="">Power Tools</a></li>
-              <li><a href="">Marketing Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Quick Links</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Jobs</a></li>
-              <li><a href="">Brand Assets</a></li>
-              <li><a href="">Investor Relations</a></li>
-              <li><a href="">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Features</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Jobs</a></li>
-              <li><a href="">Brand Assets</a></li>
-              <li><a href="">Investor Relations</a></li>
-              <li><a href="">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Resources</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Guides</a></li>
-              <li><a href="">Research</a></li>
-              <li><a href="">Experts</a></li>
-              <li><a href="">Agencies</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="single_footer_part">
-            <h4>Newsletter</h4>
-            <p>Heaven fruitful doesn't over lesser in days. Appear creeping
-            </p>
-            <div id="mc_embed_signup">
-              <form target="_blank"
-                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                method="get" class="subscribe_form relative mail_part">
-                <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
-                  class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = ' Email Address '">
-                <button type="submit" name="submit" id="newsletter-submit"
-                  class="email_icon newsletter-submit button-contactForm">subscribe</button>
-                <div class="mt-10 info"></div>
-              </form>
+
             </div>
           </div>
         </div>
@@ -365,17 +392,15 @@
           <div class="col-lg-8">
             <div class="copyright_text">
               <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Tokofurniture <i class="ti-heart" aria-hidden="true"></i> by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="footer_icon social_icon">
               <ul class="list-unstyled">
-                <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
+                
+                <li><a href="#" class="single_social_icon"><i class="bi bi-instagram"></i></a></li>
               </ul>
             </div>
           </div>

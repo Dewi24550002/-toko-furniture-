@@ -351,7 +351,7 @@
                     <div class="col-lg-4">
                         <div class="footer_icon social_icon">
                             <ul class="list-unstyled">
-                                <li><a href="https://www.instagram.com/arletaamaya?igsh=ejZ5ZHVndXBpeGNw" class="single_social_icon" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" class="single_social_icon" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
