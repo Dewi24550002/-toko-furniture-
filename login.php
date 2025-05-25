@@ -92,7 +92,6 @@ if (isset($_POST["login"])) {
                             <div class="dropdown cart">
                                 <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-cart-plus"></i>
                                 </a>
                                 <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <div class="single_product">
@@ -126,7 +125,7 @@ if (isset($_POST["login"])) {
                 <div class="col-lg-8">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Daftar Sekarang</h2>
+                            <h2>Login</h2>
 
                         </div>
                     </div>
@@ -219,10 +218,8 @@ if (isset($_POST["login"])) {
                     <div class="col-lg-4">
                         <div class="footer_icon social_icon">
                             <ul class="list-unstyled">
-                                <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                                <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
+                                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" class="single_social_icon"
+                                        target="_blank"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>

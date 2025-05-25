@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Belanja - Tokofurniture</title>
+    <title>Belanja - Furnimart</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -28,7 +28,7 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <style>  
+    <style>
         .single_product_item {
             text-align: center;
             padding: 15px;
@@ -83,7 +83,9 @@
                         <a class="navbar-brand mx-auto" href="index.php">
                             <h1 class="m-0">Tokofurniture</h1>
                         </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <span class="menu_icon"><i class="fas fa-bars"></i></span>
                         </button>
 
@@ -101,19 +103,19 @@
                             </ul>
                         </div>
                         <?php session_start(); ?>
-                        <?php if (isset($_SESSION['username'])) : ?>
+                        <?php if (isset($_SESSION['username'])): ?>
                             <div class="header_icon d-flex">
                                 <!-- Cart Link -->
                                 <?php
                                 include 'admin/koneksi.php';
 
-                                $user_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : null;
+                                $user_id = $_SESSION['id_user'] ?? null;
 
                                 if ($user_id) {
                                     $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
                                     $result = mysqli_query($koneksi, $query);
                                     $data = mysqli_fetch_assoc($result);
-                                    $jumlah_item = isset($data['total']) ? $data['total'] : 0;
+                                    $jumlah_item = $data['total'] ?? 0;
                                 } else {
                                     $jumlah_item = 0;
                                 }
@@ -126,9 +128,11 @@
 
                                 <!-- User Dropdown -->
                                 <div class="dropdown user">
-                                    <a class="dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="dropdown-toggle d-flex align-items-center" href="#" id="userDropdown"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-user"></i>
-                                        <span class="ml-2 text-dark"><?= htmlspecialchars($_SESSION['username']); ?></span> <!-- Menampilkan username dari session -->
+                                        <span class="ml-2 text-dark"><?= htmlspecialchars($_SESSION['username']); ?></span>
+                                        <!-- Menampilkan username dari session -->
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                         <a class="dropdown-item" href="logout.php">Logout</a>
@@ -137,9 +141,10 @@
                             </div>
 
 
-                        <?php else : ?>
+                        <?php else: ?>
                             <!-- Login Button -->
-                            <a href="login.php" class="btn btn-primary ml-3 px-3 py-2" style="border-radius: 20px;">Login</a>
+                            <a href="login.php" class="btn btn-primary ml-3 px-3 py-2"
+                                style="border-radius: 20px;">Login</a>
                         <?php endif; ?>
 
                     </nav>
@@ -179,12 +184,17 @@
                             </div>
                             <?php
                             include 'admin/koneksi.php'; // Pastikan file koneksi ada
-
+                            
                             // Ambil kategori yang dipilih dari URL
                             $id_kategori = isset($_GET['id_kategori']) ? mysqli_real_escape_string($koneksi, $_GET['id_kategori']) : null;
 
                             // Ambil semua kategori beserta jumlah produknya
-                            $query_kategori = "SELECT k.id_kategori, k.nm_kategori, COUNT(p.id_produk) AS jumlah_produk FROM tb_kategori k LEFT JOIN tb_produk p ON k.id_kategori = p.id_kategori GROUP BY k.id_kategori";
+                            $query_kategori = "
+    SELECT k.id_kategori, k.nm_kategori, COUNT(p.id_produk) AS jumlah_produk 
+    FROM tb_kategori k
+    LEFT JOIN tb_produk p ON k.id_kategori = p.id_kategori
+    GROUP BY k.id_kategori
+";
                             $result_kategori = mysqli_query($koneksi, $query_kategori);
                             ?>
 
@@ -214,9 +224,12 @@
                                 <div class="single_product_menu d-flex">
                                     <form method="GET" action="">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" name="search" placeholder="Cari produk..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                                            <input type="text" class="form-control" name="search"
+                                                placeholder="Cari produk..."
+                                                value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                                             <div class="input-group-prepend">
-                                                <button type="submit" class="input-group-text"><i class="ti-search"></i></button>
+                                                <button type="submit" class="input-group-text"><i
+                                                        class="ti-search"></i></button>
                                             </div>
                                         </div>
                                     </form>
@@ -228,7 +241,7 @@
                     <?php
                     // Tentukan jumlah produk per halaman
                     $limit = 6;
-                    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                    $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
                     $start = ($page - 1) * $limit;
 
                     // Ambil kata kunci pencarian jika ada
@@ -260,12 +273,14 @@
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_product_item">
                                     <div class="product_img_wrapper">
-                                        <img src="admin/produk_img/<?php echo htmlspecialchars($row_produk['gambar']); ?>" alt="">
+                                        <img src="admin/produk_img/<?php echo htmlspecialchars($row_produk['gambar']); ?>"
+                                            alt="">
                                     </div>
                                     <div class="single_product_text">
                                         <h4><?php echo htmlspecialchars($row_produk['nm_produk']); ?></h4>
                                         <h3>Rp <?php echo number_format($row_produk['harga'], 0, ',', '.'); ?></h3>
-                                        <a href="detail_produk.php?id=<?php echo $row_produk['id_produk']; ?>" class="add_cart">+ keranjang</a>
+                                        <a href="detail_produk.php?id=<?php echo $row_produk['id_produk']; ?>"
+                                            class="add_cart">+ keranjang</a>
                                     </div>
                                 </div>
                             </div>
@@ -286,7 +301,9 @@
                                     <ul class="pagination justify-content-center">
                                         <?php if ($page > 1) { ?>
                                             <li class="page-item">
-                                                <a class="page-link" href="?id_kategori=<?php echo $id_kategori; ?>&search=<?php echo $search; ?>&page=<?php echo ($page - 1); ?>" aria-label="Previous">
+                                                <a class="page-link"
+                                                    href="?id_kategori=<?php echo $id_kategori; ?>&search=<?php echo $search; ?>&page=<?php echo ($page - 1); ?>"
+                                                    aria-label="Previous">
                                                     <i class="ti-angle-double-left"></i>
                                                 </a>
                                             </li>
@@ -294,13 +311,16 @@
 
                                         <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
                                             <li class="page-item <?php echo ($i == $page) ? 'active' : ''; ?>">
-                                                <a class="page-link" href="?id_kategori=<?php echo $id_kategori; ?>&search=<?php echo $search; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                                <a class="page-link"
+                                                    href="?id_kategori=<?php echo $id_kategori; ?>&search=<?php echo $search; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
                                             </li>
                                         <?php } ?>
 
                                         <?php if ($page < $total_pages) { ?>
                                             <li class="page-item">
-                                                <a class="page-link" href="?id_kategori=<?php echo $id_kategori; ?>&search=<?php echo $search; ?>&page=<?php echo ($page + 1); ?>" aria-label="Next">
+                                                <a class="page-link"
+                                                    href="?id_kategori=<?php echo $id_kategori; ?>&search=<?php echo $search; ?>&page=<?php echo ($page + 1); ?>"
+                                                    aria-label="Next">
                                                     <i class="ti-angle-double-right"></i>
                                                 </a>
                                             </li>
@@ -342,16 +362,19 @@
                     <div class="col-lg-8">
                         <div class="copyright_text">
                             <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
+                                Copyright &copy;
+                                <script>
                                     document.write(new Date().getFullYear());
                                 </script> All rights reserved | Tokofurniture by <a href="#" target="_blank">Dewi</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </P>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="footer_icon social_icon">
                             <ul class="list-unstyled">
-                                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" class="single_social_icon" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" class="single_social_icon"
+                                        target="_blank"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>

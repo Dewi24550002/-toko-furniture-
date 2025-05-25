@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Tokofurniture</title>
+  <title>Keranjang - Furnimart</title>
   <link rel="icon" href="img/favicon.png">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -29,92 +29,59 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
+<body>
   <!--::header part start::-->
   <header class="main_menu home_menu">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand mx-auto" href="index.php">
               <h1 class="m-0">Tokofurniture</h1>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="menu_icon"><i class="fas fa-bars"></i></span>
-              </button>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="menu_icon"><i class="fas fa-bars"></i></span>
+            </button>
 
-              <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1" role="button"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Shop
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                      <a class="dropdown-item" href="category.html"> shop category</a>
-                      <a class="dropdown-item" href="single-product.html">product details</a>
+            <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="belanja.php">Belanja</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.php">Hubungi Kami</a>
+                </li>
+              </ul>
+            </div>
+            <?php session_start(); ?>
+            <?php if (isset($_SESSION['username'])): ?>
+              <div class="header_icon d-flex">
 
-                    </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3" role="button"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      pages
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                      <a class="dropdown-item" href="login.html"> login</a>
-                      <a class="dropdown-item" href="tracking.html">tracking</a>
-                      <a class="dropdown-item" href="checkout.html">product checkout</a>
-                      <a class="dropdown-item" href="cart.html">shopping cart</a>
-                      <a class="dropdown-item" href="confirmation.html">confirmation</a>
-                      <a class="dropdown-item" href="elements.html">elements</a>
-                    </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2" role="button"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      blog
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                      <a class="dropdown-item" href="blog.html"> blog</a>
-                      <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                    </div>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="hearer_icon d-flex">
-                <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                <a href=""><i class="ti-heart"></i></a>
-                <div class="dropdown cart">
-                  <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-cart-plus"></i>
+                <!-- User Dropdown -->
+                <div class="dropdown user">
+                  <a class="dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                    <span class="ml-2 text-dark"><?= htmlspecialchars($_SESSION['username']); ?></span>
+                    <!-- Menampilkan username dari session -->
                   </a>
-                  <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <div class="single_product">
-
-                                </div>
-                            </div> -->
-
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                  </div>
                 </div>
               </div>
+
+            <?php else: ?>
+              <!-- Login Button -->
+              <a href="login.php" class="btn btn-primary ml-3 px-3 py-2" style="border-radius: 20px;">Login</a>
+            <?php endif; ?>
+
           </nav>
         </div>
-      </div>
-    </div>
-    <div class="search_input" id="search_input_box">
-      <div class="container ">
-        <form class="d-flex justify-content-between search-inner">
-          <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-          <button type="submit" class="btn"></button>
-          <span class="ti-close" id="close_search" title="Close Search"></span>
-        </form>
       </div>
     </div>
   </header>
@@ -129,8 +96,8 @@
         <div class="col-lg-8">
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
-              <h2>Cart Products</h2>
-              <p>Home <span>-</span>Cart Products</p>
+              <h2>Keranjang</h2>
+              <p>Beranda <span>-</span>Keranjang</p>
             </div>
           </div>
         </div>
@@ -148,12 +115,12 @@
           include 'admin/koneksi.php'; // Pastikan koneksi ke database dimuat
           
           if (!isset($_SESSION['id_user'])) {
-            echo "<script>alert('Silahkan login terlebih dahulu!'); window.location='login.php';<script>";
+            echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
             exit;
           }
 
-          $id_user = $_SESSION['id_user']; //Ambil user_id dari sesi
-          $query = "SELECT p.id_pesanan, pr.nm_produk, pr.harga, p.qty, (pr.harga * p.qty) AS total, pr.gambar
+          $id_user = $_SESSION['id_user']; // Ambil user_id dari sesi
+          $query = "SELECT p.id_pesanan, pr.nm_produk, pr.harga, p.qty, (pr.harga * p.qty) AS total, pr.gambar 
 FROM tb_pesanan p
 JOIN tb_produk pr ON p.id_produk = pr.id_produk
 JOIN tb_user u ON p.id_user = u.id_user
@@ -165,11 +132,10 @@ WHERE u.id_user = '$id_user'";
             die("Query Error: " . mysqli_error($koneksi));
           }
 
-          // Inisialisai
+          // Inisialisasi
           $subtotal = 0;
           $diskon = 0;
           $total_bayar = 0;
-
 
           ?>
 
@@ -213,10 +179,11 @@ WHERE u.id_user = '$id_user'";
                     </td>
                     <td>
                       <a href="hapus_cart.php?id_pesanan=<?php echo $row['id_pesanan']; ?>" class="btn btn-danger btn-sm"
-                        onclick="return confirm('Yakin ingin menghapus item ini?')">
+                        onclick="return confirm('Yakin ingin menghapus item ini?');">
                         <i class="ti-close"></i>
                       </a>
                     </td>
+
                   </tr>
                 <?php } ?>
 
@@ -228,7 +195,6 @@ WHERE u.id_user = '$id_user'";
                 } elseif ($subtotal > 1500000) {
                   $diskon = 0.08 * $subtotal;
                 }
-
                 $total_bayar = $subtotal - $diskon;
                 ?>
 
@@ -247,19 +213,16 @@ WHERE u.id_user = '$id_user'";
                     <h5 style="white-space: nowrap;">Rp. <?php echo number_format($subtotal, 0, ',', '.'); ?></h5>
                   </td>
                 </tr>
-
                 <tr>
                   <td colspan="3"></td>
                   <td>
                     <h5>Diskon</h5>
                   </td>
                   <td style="text-align: right;">
-                    <h5 style="display: flex; justify-content: flex-start; gap: 5px;">
-                      <?php echo number_format($diskon, 0, ',', '.'); ?>
-                    </h5>
+                    <h5 style="display: flex; justify-content: flex-start; gap: 5px;">Rp.
+                      <?php echo number_format($diskon, 0, ',', '.'); ?></h5>
                   </td>
                 </tr>
-
                 <tr>
                   <td colspan="3"></td>
                   <td>
@@ -279,30 +242,30 @@ WHERE u.id_user = '$id_user'";
           </div>
         </div>
       </div>
-   </section>
-   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("checkoutBtn").addEventListener("click", function() {
-      fetch("proses_checkout.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({})
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert("Checkout berhasil!");
-          window.location.href = "belanja.php"; // Redirect ke halaman riwayat transaksi
-        } else {
-          alert("Gagal checkout: " + data.message);
-        }
-      })
-      .catch(error => console.error("Error:", error));
+  </section>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("checkoutBtn").addEventListener("click", function () {
+        fetch("proses_checkout.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({})
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert("Checkout berhasil!");
+              window.location.href = "belanja.php"; // Redirect ke halaman riwayat transaksi
+            } else {
+              alert("Gagal checkout: " + data.message);
+            }
+          })
+          .catch(error => console.error("Error:", error));
+      });
     });
-  });
-</script>
+  </script>
 
   <!--================End Cart Area =================-->
 
@@ -311,67 +274,14 @@ WHERE u.id_user = '$id_user'";
     <div class="container">
       <div class="row justify-content-around">
         <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Top Products</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Managed Website</a></li>
-              <li><a href="">Manage Reputation</a></li>
-              <li><a href="">Power Tools</a></li>
-              <li><a href="">Marketing Service</a></li>
-            </ul>
-          </div>
         </div>
         <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Quick Links</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Jobs</a></li>
-              <li><a href="">Brand Assets</a></li>
-              <li><a href="">Investor Relations</a></li>
-              <li><a href="">Terms of Service</a></li>
-            </ul>
-          </div>
         </div>
         <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Features</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Jobs</a></li>
-              <li><a href="">Brand Assets</a></li>
-              <li><a href="">Investor Relations</a></li>
-              <li><a href="">Terms of Service</a></li>
-            </ul>
-          </div>
         </div>
         <div class="col-sm-6 col-lg-2">
-          <div class="single_footer_part">
-            <h4>Resources</h4>
-            <ul class="list-unstyled">
-              <li><a href="">Guides</a></li>
-              <li><a href="">Research</a></li>
-              <li><a href="">Experts</a></li>
-              <li><a href="">Agencies</a></li>
-            </ul>
-          </div>
         </div>
         <div class="col-sm-6 col-lg-4">
-          <div class="single_footer_part">
-            <h4>Newsletter</h4>
-            <p>Heaven fruitful doesn't over lesser in days. Appear creeping
-            </p>
-            <div id="mc_embed_signup">
-              <form target="_blank"
-                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                method="get" class="subscribe_form relative mail_part">
-                <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
-                  class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = ' Email Address '">
-                <button type="submit" name="submit" id="newsletter-submit"
-                  class="email_icon newsletter-submit button-contactForm">subscribe</button>
-                <div class="mt-10 info"></div>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -383,9 +293,9 @@ WHERE u.id_user = '$id_user'";
             <div class="copyright_text">
               <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | Tokofurniture
-                <i class="ti-heart" aria-hidden="true"></i> by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
-                  target="_blank">Dewi</a>
+                <script>
+                  document.write(new Date().getFullYear());
+                </script> All rights reserved | Tokofurniture by <a href="#" target="_blank">Dewi</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </P>
             </div>
@@ -393,10 +303,9 @@ WHERE u.id_user = '$id_user'";
           <div class="col-lg-4">
             <div class="footer_icon social_icon">
               <ul class="list-unstyled">
-                <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
+                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" class="single_social_icon" target="_blank"><i
+                      class="fab fa-instagram"></i></a></li>
+                
               </ul>
             </div>
           </div>

@@ -118,48 +118,48 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-house-door"></i>
+                    <i class="bi bi-houses"></i>
                     <span>Beranda</span>
                 </a>
             </li><!-- End Beranda Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
-                    <i class="bi bi-tags"></i>
+                    <i class="bi bi-amd"></i>
                     <span>Kategori Produk</span>
                 </a>
             </li><!-- End Kategori Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="produk.php">
-                    <i class="bi bi-shop"></i>
+                    <i class="bi bi-box-fill"></i>
                     <span>Produk</span>
                 </a>
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="keranjang.php">
-                    <i class="bi bi-cart"></i>
+                    <i class="bi bi-bucket-fill"></i>
                     <span>Keranjang</span>
                 </a>
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="transaksi.php">
-                    <i class="bi bi-receipt"></i>
+                    <i class="bi bi-cash-stack"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="laporan.php">
-                    <i class="bi bi-file-earmark-bar-graph"></i>
+                    <i class="bi bi-clipboard-data"></i>
                     <span>Laporan</span>
                 </a>
             </li><!-- End Laporan Page Nav -->
             <li class="nav-item">
                 <a class="nav-link" href="pengguna.php">
-                    <i class="bi bi-people"></i>
+                    <i class="bi bi-person-bounding-box"></i>
                     <span>Pengguna</span>
                 </a>
             </li><!-- End Pengguna Page Nav -->
