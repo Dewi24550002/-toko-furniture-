@@ -194,7 +194,7 @@
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
-                                <td>
+                                <tbody>
                                     <?php
                                     include "koneksi.php";
                                     $no = 1;
