@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Detail Produk - Furnimart</title>
+  <title>Detail Produk - Tokofurniture</title>
   <link rel="icon" href="img/favicon.png">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -50,78 +50,6 @@
 <body>
   <!--::header part start::-->
   <header class="main_menu home_menu">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-12">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand mx-auto" href="index.php">
-              <h1 class="m-0">Tokofurniture</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="menu_icon"><i class="fas fa-bars"></i></span>
-            </button>
-
-            <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.php">Beranda</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="belanja.php">Belanja</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.php">Hubungi Kami</a>
-                </li>
-              </ul>
-            </div>
-            <?php session_start(); ?>
-            <?php if (isset($_SESSION['username'])): ?>
-              <div class="header_icon d-flex">
-                <!-- Cart Link -->
-                <?php
-                include 'admin/koneksi.php';
-
-                $user_id = $_SESSION['id_user'] ?? null;
-
-                if ($user_id) {
-                  $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
-                  $result = mysqli_query($koneksi, $query);
-                  $data = mysqli_fetch_assoc($result);
-                  $jumlah_item = $data['total'] ?? 0;
-                } else {
-                  $jumlah_item = 0;
-                }
-                ?>
-
-                <a href="cart.php" id="cartLink" style="position: relative; display: inline-block;">
-                  <i class="fas fa-cart-plus" style="font-size: 16px;"></i>
-                  <span class="cart-badge"><?= $jumlah_item ?></span>
-                </a>
-
-                <!-- User Dropdown -->
-                <div class="dropdown user">
-                  <a class="dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i>
-                    <span class="ml-2 text-dark"><?= htmlspecialchars($_SESSION['username']); ?></span>
-                    <!-- Menampilkan username dari session -->
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="logout.php">Logout</a>
-                  </div>
-                </div>
-              </div>
-
-            <?php else: ?>
-              <!-- Login Button -->
-              <a href="login.php" class="btn btn-primary ml-3 px-3 py-2" style="border-radius: 20px;">Login</a>
-            <?php endif; ?>
-
-          </nav>
-        </div>
-      </div>
-    </div>
   </header>
   <!-- Header part end-->
 
@@ -133,7 +61,7 @@
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
               <h2>Detail Produk</h2>
-              <p>Beranda <span>-</span> Detail Produk</p>
+              <p>Beranda <span>-</span>Detail Produk</p>
             </div>
           </div>
         </div>
@@ -161,7 +89,7 @@
   // Tambahkan pesanan ke database
   if (isset($_POST['add_to_cart'])) {
     if (!isset($_SESSION['login'])) {
-      echo "<script>alert('Silakan login terlebih dahulu!'); window.location.href='login.php';</script>";
+      echo "<script>alert('Silahkan login terlebih dahulu!'); window.location.href='login.php';</script>";
     } else {
       $id_user = $_SESSION['id_user'];
       $qty = intval($_POST['qty']);
@@ -290,7 +218,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <div class="section_tittle text-center">
-            <h2>Produk Lainnya</h2>
+            <h2>Produk Lainnya<span></span></h2>
           </div>
         </div>
       </div>
@@ -356,8 +284,8 @@
           <div class="col-lg-4">
             <div class="footer_icon social_icon">
               <ul class="list-unstyled">
-                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" class="single_social_icon" target="_blank"><i
-                      class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
+                    class="single_social_icon" target="_blank"><i class="fab fa-instagram"></i></a></li>
               </ul>
             </div>
           </div>

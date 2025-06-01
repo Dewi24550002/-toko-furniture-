@@ -45,13 +45,6 @@
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="GET" action="">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-        </div><!-- End Search Bar -->
-
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
 
@@ -228,27 +221,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                <?php
-                                $no = 1;
-                                while ($d = mysqli_fetch_assoc($detail)) :
-                                    ?>
-                                    <tr>
-                                        <td><?= $no++ ?></td>
-                                            <td><?= $d['nm_produk']; ?></td>
-                                            <td>Rp <?=number_format($d['harga_produk'], 0, ',', '.') ?></td>
-                                            <td><?= $d['qty'] ?></td>
-                                            <td>Rp <?=number_format($d['subtotal'], 0, ',', '.') ?></td>
-                                        </tr>
+                                        <?php
+                                        $no = 1;
+                                        while ($d = mysqli_fetch_assoc($detail)):
+                                            ?>
+                                            <tr>
+                                                <td><?= $no++ ?></td>
+                                                <td><?= $d['nm_produk']; ?></td>
+                                                <td>Rp <?= number_format($d['harga_produk'], 0, ',', '.') ?></td>
+                                                <td><?= $d['qty'] ?></td>
+                                                <td>Rp <?= number_format($d['subtotal'], 0, ',', '.') ?></td>
+                                            </tr>
                                         <?php endwhile; ?>
-                                     </tbody>
+                                    </tbody>
                                 </table>
 
-                                </div>
-                                <a href="transaksi.php" class="btn btn-secondary">Kembali</a>
                             </div>
+                            <a href="transaksi.php" class="btn btn-secondary">Kembali</a>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
     </main><!-- End #main -->

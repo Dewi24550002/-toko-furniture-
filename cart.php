@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Keranjang - Furnimart</title>
+  <title>Keranjang - Tokofurniture</title>
   <link rel="icon" href="img/favicon.png">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="css/price_rangs.css">
   <!-- style CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -169,8 +170,7 @@ WHERE u.id_user = '$id_user'";
                     <td>
                       <div class="product_count">
                         <span class="input-number-decrement"><i class="ti-angle-down"></i></span>
-                        <input class="input-number" type="number" name="qty[<?php echo $row['id_pesanan']; ?>]"
-                          value="<?php echo $row['qty']; ?>" min="1">
+                        <input class="input-number" type="number" name="qty[<?php echo $row['id_pesanan']; ?>]" value="<?php echo $row['qty']; ?>" min="1">
                         <span class="input-number-increment"><i class="ti-angle-up"></i></span>
                       </div>
                     </td>
