@@ -18,7 +18,6 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 

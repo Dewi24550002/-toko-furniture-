@@ -1,3 +1,20 @@
+<?php
+    session_start();
+    include "koneksi.php";
+
+    // Cek apakah sudah login
+    if (!isset($_SESSION["login"])) {
+        header("location: login.php");
+        exit;
+    }
+
+    // Cek apakah status tersedia dan pastikan user adalah admin
+    if (!isset($_SESSION["status"]) || $_SESSION["status"] !="admin") {
+        echo "<script>alert('Akses ditolak!Halaman ini hanya untuk Admin.'); window.location.href='login.php'</script>";
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +22,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Produk - Tokofurniture</title>
+    <title>Detail Jual - Tokofurniture</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -74,7 +91,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="logout.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -106,7 +123,7 @@
             </li><!-- End Kategori Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" href="produk.php">
+                <a class="nav-link collapsed" href="produk.php">
                     <i class="bi bi-box-fill"></i>
                     <span>Produk</span>
                 </a>
@@ -120,7 +137,7 @@
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="transaksi.php">
+                <a class="nav-link" href="transaksi.php">
                     <i class="bi bi-cash-stack"></i>
                     <span>Transaksi</span>
                 </a>
@@ -209,7 +226,7 @@
                                     </tbody>
                                 </table>
 
-                                <h5>Detail Pembelian</h5>
+                                <h5>Detail Pembelian:</h5>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>

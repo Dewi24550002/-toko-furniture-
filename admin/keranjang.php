@@ -24,7 +24,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != "admin") {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Produk - Tokofurniture Admin</title>
+    <title>Keranjang - Tokofurniture Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -93,7 +93,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != "admin") {
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="logout.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>

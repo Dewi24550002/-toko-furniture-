@@ -1,3 +1,20 @@
+<?php
+session_start();
+include "koneksi.php";
+
+// Cek apakah sudah login
+if (!isset($_SESSION["login"])) {
+  header("location: login.php");
+  exit;
+}
+
+// Cek apakah status tersedia dan pastikan user adalah admin
+if (!isset($_SESSION["status"]) || $_SESSION["status"] != "admin") {
+  echo "<script>alert('Akses ditolak!Halaman ini hanya untuk Admin.'); window.location.href='login.php'</script>";
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +95,7 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Dewi Nuraeni</h6>
+              <h6>Dewi</h6>
               <span>Admin</span>
             </li>
         </li>
@@ -87,7 +104,7 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="#">
+          <a class="dropdown-item d-flex align-items-center" href="logout.php">
             <i class="bi bi-box-arrow-right"></i>
             <span>Sign Out</span>
           </a>
@@ -108,7 +125,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php">
-        <i class="bi bi-houses"></i>
+          <i class="bi bi-houses"></i>
           <span>Beranda</span>
         </a>
       </li><!-- End Beranda Nav -->
@@ -122,35 +139,35 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="produk.php">
-        <i class="bi bi-box-fill"></i>
+          <i class="bi bi-box-fill"></i>
           <span>Produk</span>
         </a>
       </li><!-- End Produk Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="keranjang.php">
-        <i class="bi bi-bucket-fill"></i>
+          <i class="bi bi-bucket-fill"></i>
           <span>Keranjang</span>
         </a>
       </li><!-- End Keranjang Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="transaksi.php">
-        <i class="bi bi-cash-stack"></i>
+          <i class="bi bi-cash-stack"></i>
           <span>Transaksi</span>
         </a>
       </li><!-- End Transaksi Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="laporan.php">
-        <i class="bi bi-clipboard-data"></i>
+          <i class="bi bi-clipboard-data"></i>
           <span>Laporan</span>
         </a>
       </li><!-- End Laporan Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pengguna.php">
-        <i class="bi bi-person-bounding-box"></i>
+          <i class="bi bi-person-bounding-box"></i>
           <span>Pengguna</span>
         </a>
       </li><!-- End Pengguna Nav -->
@@ -236,7 +253,7 @@
                     } else {
                       ?>
                       <tr>
-                        <td colspan="3" class="text-center">Belum Ada Data</td>
+                        <td colspan="3" class="text-center">Data tidak ditemukan</td>
                         <?php
                     }
                     ?>
@@ -265,7 +282,8 @@
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi Nuraeni</a>
+      Designed by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi
+        Nuraeni</a>
     </div>
   </footer><!-- End Footer -->
 

@@ -201,7 +201,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Username</th>
+                                        <th>Nama Pengguna</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>

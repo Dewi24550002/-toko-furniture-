@@ -1,5 +1,18 @@
 <?php
-include "koneksi.php";
+    session_start();
+    include "koneksi.php";
+
+    // Cek apakah sudah login
+    if (!isset($_SESSION["login"])) {
+        header("location: login.php");
+        exit;
+    }
+
+    // Cek apakah status tersedia dan pastikan user adalah admin
+    if (!isset($_SESSION["status"]) || $_SESSION["status"] !="admin") {
+        echo "<script>alert('Akses ditolak!Halaman ini hanya untuk Admin.'); window.location.href='login.php'</script>";
+        exit;
+    }
 
 if (isset($_POST['simpan'])) {
   $auto = mysqli_query($koneksi, "select max(id_kategori) as max_code from tb_kategori");
@@ -21,6 +34,7 @@ if (isset($_POST['simpan'])) {
   }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +42,7 @@ if (isset($_POST['simpan'])) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kategori - Tokofurniture Admin</title>
+  <title>Kategori - Tokofurniture</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -99,7 +113,7 @@ if (isset($_POST['simpan'])) {
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="logout.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -218,7 +232,7 @@ if (isset($_POST['simpan'])) {
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi Nuraeni</a>
+      Designed by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
     </div>
   </footer><!-- End Footer -->
 
