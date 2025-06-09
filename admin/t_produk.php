@@ -118,7 +118,6 @@ if (isset($_POST['simpan'])) {
                             <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></h6>
                             <span>Admin</span>
                         </li>
-                        <>
                             <hr class="dropdown-divider">
                         <li>
                         </li>

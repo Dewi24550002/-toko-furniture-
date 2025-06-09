@@ -168,7 +168,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
       <div class="row">
 
         <!-- Left side columns -->
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <div class="row">
 
             <!-- Welcome Card -->

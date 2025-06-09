@@ -95,7 +95,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] != "admin") {
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Dewi</h6>
+              <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></h6>
               <span>Admin</span>
             </li>
         </li>
@@ -282,8 +282,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] != "admin") {
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi
-        Nuraeni</a>
+      Designed by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
     </div>
   </footer><!-- End Footer -->
 
