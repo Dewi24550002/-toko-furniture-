@@ -103,7 +103,7 @@
                             </ul>
                         </div>
                         <?php session_start(); ?>
-                        <?php if (isset($_SESSION['username'])): ?>
+                        <?php if (isset($_SESSION['username'])) : ?>
                             <div class="header_icon d-flex">
                                 <!-- Cart Link -->
                                 <?php
@@ -141,7 +141,7 @@
                             </div>
 
 
-                        <?php else: ?>
+                        <?php else : ?>
                             <!-- Login Button -->
                             <a href="login.php" class="btn btn-primary ml-3 px-3 py-2"
                                 style="border-radius: 20px;">Login</a>
@@ -365,7 +365,7 @@
                                 Copyright &copy;
                                 <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | Tokofurniture by <a href="#" target="_blank">Dewi</a>
+                                </script> All rights reserved | Tokofurniture by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </P>
                         </div>

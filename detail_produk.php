@@ -23,35 +23,86 @@
   <link rel="stylesheet" href="css/magnific-popup.css">
   <!-- style CSS -->
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .owl-prev,
-    .owl-next {
-      display: none !important;
-    }
-
-    .cart-badge {
-      position: absolute;
-      top: -5px;
-      right: -8px;
-      background: #f72a74;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 6px;
-      font-size: 10px;
-      font-weight: bold;
-      line-height: 1;
-      min-width: 16px;
-      text-align: center;
-      z-index: 10;
-    }
-  </style>
 </head>
 
 <body>
   <!--::header part start::-->
   <header class="main_menu home_menu">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand mx-auto" href="index.php">
+              <h1 class="m-0">Furnita</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="menu_icon"><i class="fas fa-bars"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="belanja.php">Belanja</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.php">Hubungi Kami</a>
+                </li>
+              </ul>
+            </div>
+            <?php session_start(); ?>
+            <?php if (isset($_SESSION['username'])): ?>
+              <div class="header_icon d-flex">
+                <!-- Cart Link -->
+                <?php
+                include 'admin/koneksi.php';
+
+                $user_id = $_SESSION['id_user'] ?? null;
+
+                if ($user_id) {
+                  $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
+                  $result = mysqli_query($koneksi, $query);
+                  $data = mysqli_fetch_assoc($result);
+                  $jumlah_item = $data['total'] ?? 0;
+                } else {
+                  $jumlah_item = 0;
+                }
+                ?>
+
+                <a href="cart.php" id="cartLink" style="position: relative; display: inline-block;">
+                  <i class="fas fa-cart-plus" style="font-size: 16px;"></i>
+                  <span class="cart-badge"><?= $jumlah_item ?></span>
+                </a>
+
+                <!-- User Dropdown -->
+                <div class="dropdown user">
+                  <a class="dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                    <span class="ml-2 text-dark"><?= htmlspecialchars($_SESSION['username']); ?></span>
+                    <!-- Menampilkan username dari session -->
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                  </div>
+                </div>
+              </div>
+
+
+            <?php else: ?>
+              <!-- Login Button -->
+              <a href="login.php" class="btn btn-primary ml-3 px-3 py-2" style="border-radius: 20px;">Login</a>
+            <?php endif; ?>
+
+          </nav>
+        </div>
+      </div>
+    </div>
   </header>
-  <!-- Header part end-->
+  <!-- Header part end-->
 
   <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg">
@@ -218,7 +269,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <div class="section_tittle text-center">
-            <h2>Produk Lainnya<span></span></h2>
+            <h2>Produk Lainnya</h2>
           </div>
         </div>
       </div>
@@ -276,8 +327,10 @@
                 Copyright &copy;
                 <script>
                   document.write(new Date().getFullYear());
-                </script> All rights reserved | Tokofurniture by <a href="#" target="_blank">Dewi</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </script> All rights reserved | Tokofurniture
+                  by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
+                    target="_blank">Dewi</a>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </P>
             </div>
           </div>
