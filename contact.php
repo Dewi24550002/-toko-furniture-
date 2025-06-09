@@ -25,6 +25,11 @@
   <!-- style CSS -->
   <link rel="stylesheet" href="css/style.css">
   <style>
+    .owl-prev,
+    .owl-next {
+      display: none !important;
+    }
+    
     .cart-badge {
       position: absolute;
       top: -5px;

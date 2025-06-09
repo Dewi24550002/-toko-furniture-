@@ -47,7 +47,7 @@ $data = mysqli_fetch_array($sql);
     }
     ?>
     <!--::header part start::-->
-    
+
 
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg">
@@ -57,7 +57,7 @@ $data = mysqli_fetch_array($sql);
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
                             <h2>Register Sekarang!!</h2>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,8 @@ $data = mysqli_fetch_array($sql);
                     <div class="login_part_text text-center">
                         <div class="login_part_text_iner">
                             <h2>Sudah punya akun di Tokofurniture?</h2>
-                            <p>Masuk sekarang dan nikmati pengalaman berbelanja furniture terbaik dengan penawaran menarik serta kemudahan transaksi.</p>
+                            <p>Masuk sekarang dan nikmati pengalaman berbelanja furniture terbaik dengan penawaran
+                                menarik serta kemudahan transaksi.</p>
                             <a href="login.php" class="btn_3">Masuk Sekarang</a>
                         </div>
                     </div>
@@ -86,13 +87,14 @@ $data = mysqli_fetch_array($sql);
                                 Bergabung dengan Tokofurniture sekarang!</h3>
                             <form class="row contact_form" action="#" method="post">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="username" name="username" 
+                                    <input type="text" class="form-control" id="username" name="username"
                                         placeholder="Username">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" value="" placeholder="Password">
+                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                        placeholder="Password">
                                 </div>
-                                    <div class="col-md-12 form-group p_star">
+                                <div class="col-md-12 form-group p_star">
                                     <input type="password" class="form-control" id="confirm_password" name="password2"
                                         placeholder="Konfirmasi Password">
                                 </div>
@@ -118,14 +120,19 @@ $data = mysqli_fetch_array($sql);
                     <div class="col-lg-8">
                         <div class="copyright_text">
                             <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved |
+                                Tokofurniture by <a
+                                    href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
+                                    target="_blank">Dewi</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </P>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="footer_icon social_icon">
-                            <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" class="single_social_icon"
-                                        target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
+                                    class="single_social_icon" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>

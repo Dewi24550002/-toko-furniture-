@@ -25,6 +25,10 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
     <style>
+        .owl-prev,
+        .owl-next {
+            display: none !important;
+        }
         .cart-badge {
             position: absolute;
             top: -5px;
@@ -121,8 +125,7 @@
                     </nav>
                 </div>
             </div>
-        </div>
-        
+        </div>   
     </header>
 
     <!-- Header part end-->
@@ -140,9 +143,8 @@
                                         <div class="banner_text_iner">
                                             <h1>Sofa Nyaman & Elegant</h1>
                                             <p>Dibuat dari bahan berkualitas, tampilannya yang sleek dipadukan dengan
-                                                warna netral menjadikannya pilihan sempurna untuk melengkapi ruang tamu
-                                                Anda.</p>
-                                            <a href="#" class="btn_2">Pesan Sekarang</a>
+                                                warna netral menjadikannya pilihan sempurna untuk melengkapi ruang tamu Anda.</p>
+                                            <a href="belanja.php" class="btn_2">Pesan Sekarang</a>
                                         </div>
                                     </div>
                                 </div>
@@ -156,17 +158,14 @@
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>Sofa Nyaman & Elegant</h1>
-                                            <p>Dibuat dari bahan berkualitas, tampilannya yang sleek dipadukan dengan
-                                                warna
-                                                netral menjadikannya pilihan sempurna untuk melengkapi ruang tamu Anda.
-                                            </p>
-                                            <a href="#" class="btn_2">Pesan Sekarang</a>
+                                            <h1>Sofa Single Elegant</h1>
+                                            <p>Dengan desain modern dan sentuhan warna lembut, sofa ini membawa nuansa elegan ke ruang tamu Anda. Terbuat dari material pilihan yang nyaman dan tahan lama, cocok untuk melengkapi interior rumah bergaya minimalis.</p>
+                                            <a href="belanja.php" class="btn_2">Lihat Produk</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
+                                    <img src="img/pink.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -175,21 +174,18 @@
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
                                         <div class="banner_text_iner">
-                                            <h1>Sofa Nyaman & Elegant</h1>
-                                            <p>Dibuat dari bahan berkualitas, tampilannya yang sleek dipadukan dengan
-                                                warna
-                                                netral menjadikannya pilihan sempurna untuk melengkapi ruang tamu Anda.
-                                            </p>
-                                            <a href="#" class="btn_2">Pesan Sekarang</a>
+                                            <h1>Sofa Stylish & Kekinian</h1>
+                                            <p>Dirancang untuk memberikan kenyamanan maksimal, sofa ini hadir dengan desain modern dan warna netral yang mudah dipadukan dengan berbagai gaya interior. Ideal untuk bersantai bersama keluarga di ruang tamu Anda.</p>
+                                            <a href="belanja.php" class="btn_2">Lihat Koleksi</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
+                                    <img src="img/sofaabu.png" alt="">
+                                    </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- <div class="single_banner_slider">
+                               <!-- <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
@@ -207,11 +203,11 @@
                             </div>
                         </div> -->
                     </div>
-                    <div class="slider-counter"></div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- banner part start-->
 
     <!-- product_list start-->
     <section class="product_list section_padding">

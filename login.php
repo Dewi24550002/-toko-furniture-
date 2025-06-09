@@ -23,13 +23,13 @@ if (isset($_POST["login"])) {
             echo "<script>alert('Username atau password yang Anda masukkan salah')</script>";
         }
     } else {
-         echo "<script>alert('Username atau password yang Anda masukkan salah')</script>";
-        }
+        echo "<script>alert('Username atau password yang Anda masukkan salah')</script>";
     }
- ?>
-    
-    
-    <!doctype html>
+}
+?>
+
+
+<!doctype html>
 <html lang="zxx">
 
 <head>
@@ -58,61 +58,6 @@ if (isset($_POST["login"])) {
 </head>
 
 <body>
-    <!--::header part start::-->
-    <header class="main_menu home_menu">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.php">
-                            <h1 class="m-0">Tokofurniture</h1>
-                        </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.php">Beranda</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="belanja.php">Belanja</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.php">Hubungi Kami</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="hearer_icon d-flex">
-                            <a id="search_1" href="javascript:void(0)"></a>
-
-                            <div class="dropdown cart">
-                                <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                </a>
-                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <div class="single_product">
-    
-                                    </div>
-                                </div> -->
-
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        
-                </form>
-            </div>
-        </div>
-    </header>
-    <!-- Header part end-->
-
-
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
@@ -152,7 +97,8 @@ if (isset($_POST["login"])) {
                                 Silahkan masuk untuk melanjutkan</h3>
                             <form class="row contact_form" action="#" method="post" novalidate="novalidate">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="username" value="" placeholder="Username">
+                                    <input type="text" class="form-control" id="name" name="username" value=""
+                                        placeholder="Username">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
                                     <input type="password" class="form-control" id="password" name="password" value=""
@@ -160,7 +106,7 @@ if (isset($_POST["login"])) {
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <div class="creat_account d-flex align-items-center">
-                                       
+
                                     </div>
                                     <button type="submit" value="submit" class="btn_3" name="login">
                                         log in
@@ -202,10 +148,8 @@ if (isset($_POST["login"])) {
                         <div class="copyright_text">
                             <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 Copyright &copy;
-                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                                template is made with by <a
-                                    href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
-                                    target="_blank">Dewi</a>
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | Tokofurniture by <a
+                                    href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </P>
                         </div>
@@ -213,8 +157,9 @@ if (isset($_POST["login"])) {
                     <div class="col-lg-4">
                         <div class="footer_icon social_icon">
                             <ul class="list-unstyled">
-                                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" class="single_social_icon"
-                                        target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
+                                        class="single_social_icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>

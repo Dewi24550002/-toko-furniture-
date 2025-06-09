@@ -23,28 +23,6 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .owl-prev,
-        .owl-next {
-            display: none !important;
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -5px;
-            right: -8px;
-            background: #f72a74;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 10px;
-            font-weight: bold;
-            line-height: 1;
-            min-width: 16px;
-            text-align: center;
-            z-index: 10;
-        }
-    </style>
 </head>
 
 <body>
@@ -57,7 +35,9 @@
                         <a class="navbar-brand mx-auto" href="index.php">
                             <h1 class="m-0">Tokofurniture</h1>
                         </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <span class="menu_icon"><i class="fas fa-bars"></i></span>
                         </button>
 
@@ -75,7 +55,7 @@
                             </ul>
                         </div>
                         <?php session_start(); ?>
-                        <?php if (isset($_SESSION['username'])) : ?>
+                        <?php if (isset($_SESSION['username'])): ?>
                             <div class="header_icon d-flex">
                                 <!-- Cart Link -->
                                 <?php
@@ -100,9 +80,11 @@
 
                                 <!-- User Dropdown -->
                                 <div class="dropdown user">
-                                    <a class="dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="dropdown-toggle d-flex align-items-center" href="#" id="userDropdown"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-user"></i>
-                                        <span class="ml-2 text-dark"><?= htmlspecialchars($_SESSION['username']); ?></span> <!-- Menampilkan username dari session -->
+                                        <span class="ml-2 text-dark"><?= htmlspecialchars($_SESSION['username']); ?></span>
+                                        <!-- Menampilkan username dari session -->
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                         <a class="dropdown-item" href="logout.php">Logout</a>
@@ -110,9 +92,11 @@
                                 </div>
                             </div>
 
-                        <?php else : ?>
+
+                        <?php else: ?>
                             <!-- Login Button -->
-                            <a href="login.php" class="btn btn-primary ml-3 px-3 py-2" style="border-radius: 20px;">Login</a>
+                            <a href="login.php" class="btn btn-primary ml-3 px-3 py-2"
+                                style="border-radius: 20px;">Login</a>
                         <?php endif; ?>
 
                     </nav>
@@ -120,7 +104,7 @@
             </div>
         </div>
     </header>
-    <!-- Header part end-->
+    <!-- Header part end-->
 
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg">
@@ -130,7 +114,7 @@
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
                             <h2>Detail Produk</h2>
-                            <p>Beranda <span>-</span> Detail Produk</p>
+                            <p>Beranda <span>-</span>Detail Produk</p>
                         </div>
                     </div>
                 </div>
@@ -158,7 +142,7 @@
     // Tambahkan pesanan ke database
     if (isset($_POST['add_to_cart'])) {
         if (!isset($_SESSION['login'])) {
-            echo "<script>alert('Silakan login terlebih dahulu!'); window.location.href='login.php';</script>";
+            echo "<script>alert('Silahkan login terlebih dahulu!'); window.location.href='login.php';</script>";
         } else {
             $id_user = $_SESSION['id_user'];
             $qty = intval($_POST['qty']);
@@ -205,7 +189,8 @@
                     <div class="product_slider_img">
                         <div id="vertical">
                             <div data-thumb="admin/produk_img/<?php echo $produk['gambar']; ?>">
-                                <img src="admin/produk_img/<?php echo $produk['gambar']; ?>" style="width: 779px; height: 525px; object-fit: cover;" />
+                                <img src="admin/produk_img/<?php echo $produk['gambar']; ?>"
+                                    style="width: 779px; height: 525px; object-fit: cover;" />
                             </div>
                         </div>
                     </div>
@@ -227,7 +212,8 @@
                             <div class="card_area d-flex justify-content-between align-items-center">
                                 <div class="product_count">
                                     <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                                    <input class="input-number" type="text" name="qty" value="1" min="1" max="<?php echo $produk['stok']; ?>">
+                                    <input class="input-number" type="text" name="qty" value="1" min="1"
+                                        max="<?php echo $produk['stok']; ?>">
                                     <span class="number-increment"> <i class="ti-plus"></i></span>
                                 </div>
                                 <button type="submit" name="add_to_cart" class="btn_3">Keranjang</button>
@@ -245,10 +231,12 @@
         <div class="container">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Deskripsi</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">Deskripsi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Stok</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">Stok</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -298,11 +286,15 @@
                     <div class="best_product_slider owl-carousel">
                         <?php while ($produk_lain = $result_produk_lain->fetch_assoc()) { ?>
                             <div class="single_product_item">
-                                <img src="admin/produk_img/<?php echo $produk_lain['gambar']; ?>" alt="<?php echo $produk_lain['nm_produk']; ?>" style="width: 200px; height: 210px; object-fit: cover;">
+                                <img src="admin/produk_img/<?php echo $produk_lain['gambar']; ?>"
+                                    alt="<?php echo $produk_lain['nm_produk']; ?>"
+                                    style="width: 200px; height: 210px; object-fit: cover;">
                                 <div class="single_product_text">
                                     <h4><?php echo $produk_lain['nm_produk']; ?></h4>
                                     <h3>Rp <?php echo number_format($produk_lain['harga'], 0, ',', '.'); ?></h3>
-                                    <a href="detail_produk.php?id=<?php echo $produk_lain['id_produk']; ?>" class="add_cart">Lihat Detail</a>
+                                    <a href="detail_produk.php?id=<?php echo $produk_lain['id_produk']; ?>"
+                                        class="add_cart">Lihat
+                                        Detail</a>
                                 </div>
                             </div>
                         <?php } ?>
@@ -336,10 +328,14 @@
                     <div class="col-lg-8">
                         <div class="copyright_text">
                             <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
+                                Copyright &copy;
+                                <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | Tokofurniture by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/" target="_blank">Dewi</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
+                                </script> All rights reserved | Tokofurniture
+                                by <a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
+                                    target="_blank">Dewi</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </P>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -347,6 +343,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
                                         class="single_social_icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
