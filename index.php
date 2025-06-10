@@ -279,11 +279,9 @@
                                 <div id="seconds" class="date"></div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="enter email address"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        
                             <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">Pesan Sekarang</a>
+                                <a href="belanja.php" class="input-group-text btn_2" id="basic-addon2">Pesan Sekarang</a>
                             </div>
                         </div>
                     </div>
