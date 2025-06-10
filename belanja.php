@@ -1,22 +1,3 @@
-<?php session_start(); ?>
-                        <?php if (isset($_SESSION['username'])): ?>
-                            <div class="header_icon d-flex">
-                                <!-- Cart Link -->
-                                <?php
-                                include 'admin/koneksi.php';
-
-                                $user_id = $_SESSION['id_user'] ?? null;
-
-                                if ($user_id) {
-                                    $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
-                                    $result = mysqli_query($koneksi, $query);
-                                    $data = mysqli_fetch_assoc($result);
-                                    $jumlah_item = $data['total'] ?? 0;
-                                } else {
-                                    $jumlah_item = 0;
-                                }
-                                ?>
-
 <!doctype html>
 <html lang="zxx">
 
@@ -48,11 +29,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
-        .owl-prev
-        .owl-next {
-            display: none !important;
-        }
-        
         .single_product_item {
             text-align: center;
             padding: 15px;
@@ -126,7 +102,25 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- Cart Link -->
+                        <?php session_start(); ?>
+                        <?php if (isset($_SESSION['username'])): ?>
+                            <div class="header_icon d-flex">
+                                <!-- Cart Link -->
+                                <?php
+                                include 'admin/koneksi.php';
+
+                                $user_id = $_SESSION['id_user'] ?? null;
+
+                                if ($user_id) {
+                                    $query = "SELECT COUNT(*) as total FROM tb_pesanan WHERE id_user = '$user_id'";
+                                    $result = mysqli_query($koneksi, $query);
+                                    $data = mysqli_fetch_assoc($result);
+                                    $jumlah_item = $data['total'] ?? 0;
+                                } else {
+                                    $jumlah_item = 0;
+                                }
+                                ?>
+
                                 <a href="cart.php" id="cartLink" style="position: relative; display: inline-block;">
                                     <i class="fas fa-cart-plus" style="font-size: 16px;"></i>
                                     <span class="cart-badge"><?= $jumlah_item ?></span>
@@ -369,9 +363,8 @@
                         <div class="copyright_text">
                             <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | Tokofurniture by <a
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved |
+                                Tokofurniture by <a
                                     href="https://www.instagram.com/wiwiwinuraeni_?igsh=MWVwZ2N4Zjg0eDF3bQ==/"
                                     target="_blank">Dewi</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
