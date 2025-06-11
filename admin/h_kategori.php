@@ -6,9 +6,9 @@ $hapus = mysqli_query($koneksi, "DELETE FROM tb_kategori WHERE id_kategori = '$i
 
 if ($hapus) {
     echo "<script>alert('Data berhasil dihapus!')</script>";
-    header('location:kategori.php');
+    header("refresh:0, kategori.php");
 } else {
     echo "<script>alert('Data gagal dihapus!')</script>";
-    header('location:kategori.php');
+    header("refresh:0, kategori.php");
 }
 ?>

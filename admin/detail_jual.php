@@ -22,7 +22,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Detail Jual - Tokofurniture</title>
+    <title>Detail Jual - Tokofurniture Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
